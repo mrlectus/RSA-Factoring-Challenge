@@ -11,7 +11,7 @@ def main():
         for x in file.readlines():
             value = int(x)
             v1, v2 = find_factor(value)
-            print(f"{v1}*{v2}={value}")
+            print(f"{value}={v1}*{v2}")
 
 if __name__ == "__main__":
     main()
