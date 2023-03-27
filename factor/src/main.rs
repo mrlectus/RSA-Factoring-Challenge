@@ -1,10 +1,10 @@
-use std::{fs::read_to_string, env};
+use std::{env, fs::read_to_string};
 pub fn find_factors(num: i128) -> (i128, i128) {
     let end = num as f64;
     let end = end.sqrt();
     for i in 2..end.floor() as i128 + 1 {
         if num % i == 0 {
-            return ((num / i), i)
+            return ((num / i), i);
         }
     }
     (-1, -1)
@@ -26,6 +26,6 @@ mod test {
 
     #[test]
     fn test_find_factors() {
-        assert_eq!(find_factors(239809320265259), (15485783,15485773));
+        assert_eq!(find_factors(239809320265259), (15485783, 15485773));
     }
 }
