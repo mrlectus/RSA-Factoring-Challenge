@@ -1,5 +1,4 @@
 use std::{fs::read_to_string, env};
-
 pub fn find_factors(num: i128) -> (i128, i128) {
     let end = num as f64;
     let end = end.sqrt();
