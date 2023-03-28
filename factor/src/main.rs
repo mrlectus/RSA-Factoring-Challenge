@@ -26,6 +26,9 @@ mod test {
 
     #[test]
     fn test_find_factors() {
-        assert_eq!(find_factors(239809320265259), (15485783, 15485773));
+        assert_eq!(
+            find_factors(1718944270642558716715),
+            (343788854128511743343, 5)
+        );
     }
 }
