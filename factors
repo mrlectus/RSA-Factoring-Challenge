@@ -14,10 +14,9 @@ def find_factor(x):
 def main():
     with Pool(cpu_count()) as pool:
         with open(argv[1], "r") as file:
-            for x in file.readlines():
-                value = int(x)
-                p, q = pool.map(find_factor, range(value, value + 1))[0]
-                print(f"{value}={p}*{q}")
+                lists = pool.map(find_factor, [int(x) for x in file.readlines()])
+                for x,y in lists:
+                    print(f"{x*y}={x}*{y}")
 
 if __name__ == "__main__":
     main()
