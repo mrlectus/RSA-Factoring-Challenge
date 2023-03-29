@@ -6,8 +6,4 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-<<<<<<< HEAD
 rug = "1.19.2"
-=======
-num-bigint = { version = "0.4", features = ["rand"] }
->>>>>>> 7989802 (am tired)
