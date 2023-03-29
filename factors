@@ -1,18 +1,11 @@
 #!/usr/bin/python3
 from sys import argv
 from math import sqrt
-from multiprocessing import Pool, cpu_count
-
-def find_factor(x):
-    if x % 2 == 0:
-        return (x//2, 2)
-
-    for i in range(3, int(sqrt(x)) + 1, 2):
-        if x % i == 0:
-            return (x//i, i)
+from multiprocessing import Pool
+from factors import find_factor
 
 def main():
-    with Pool(cpu_count()) as pool:
+    with Pool(8) as pool:
         with open(argv[1], "r") as file:
                 lists = pool.map(find_factor, [int(x) for x in file.readlines()])
                 for x,y in lists:
