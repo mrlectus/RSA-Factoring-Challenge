@@ -1,20 +1,23 @@
 #!/usr/bin/python3
 from sys import argv
 from math import sqrt
+from multiprocessing import Pool, cpu_count
 
 def find_factor(x):
     if x % 2 == 0:
         return (x//2, 2)
+
     for i in range(3, int(sqrt(x)) + 1, 2):
         if x % i == 0:
             return (x//i, i)
 
 def main():
-    with open(argv[1], "r") as file:
-        for x in file.readlines():
-            value = int(x)
-            v1, v2 = find_factor(value)
-            print(f"{value}={v1}*{v2}")
+    with Pool(cpu_count()) as pool:
+        with open(argv[1], "r") as file:
+            for x in file.readlines():
+                value = int(x)
+                p, q = pool.map(find_factor, range(value, value + 1))[0]
+                print(f"{value}={p}*{q}")
 
 if __name__ == "__main__":
     main()
