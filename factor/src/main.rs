@@ -23,7 +23,7 @@ pub fn find_factors_v2(value: u128) -> (u128, u128) {
         return (value / 2, 2);
     } else {
         let mut i = 3;
-        while i <= value {
+        while i <= (value as f64 ).sqrt() as u128 {
             if value % i == 0 {
                 return ((value / i), i);
             }
