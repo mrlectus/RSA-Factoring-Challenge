@@ -3,19 +3,19 @@ use std::{env, fs::read_to_string, str::FromStr};
 use rug::Integer;
 
 pub fn find_factors(value: &str) -> (Integer, Integer) {
-    let int = Integer::from_str(value).unwrap();
+    let int = Integer::from_str(&value).unwrap();
     if int.is_even() {
         return (int / 2, Integer::from(2));
     } else {
-        let mut i = Integer::from(2);
+        let mut i = Integer::from(3);
         while i <= int {
             if &int % Integer::from(&i) == 0 {
                 return (int / Integer::from(&i), Integer::from(&i));
             }
-            i += Integer::from(1);
+            i += Integer::from(2);
         }
     }
-    (Integer::from(2), Integer::from(0))
+    (Integer::from(0), Integer::from(0))
 }
 
 fn main() {
