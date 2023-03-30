@@ -1,7 +1,8 @@
 use std::{env, fs::read_to_string};
 
+
+// To handle big Integer. <- but this is not the problem 
 // use rug::Integer;
-//
 // pub fn find_factors(value: &str) -> (Integer, Integer) {
 //     let int = Integer::from_str(value).unwrap();
 //     if int.is_even() {
@@ -18,6 +19,8 @@ use std::{env, fs::read_to_string};
 //     (Integer::from(0), Integer::from(0))
 // }
 //
+
+// Back to primitives
 pub fn find_factors_v2(value: u128) -> (u128, u128) {
     if value % 2 == 0 {
         return (value / 2, 2);
