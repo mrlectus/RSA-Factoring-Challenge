@@ -25,7 +25,7 @@ fn main() {
         .parse::<usize>()
         .unwrap();
     let (p, q) = find_rsa(prime);
-    println!("{prime}*{p}={q}");
+    println!("{prime}={p}*{q}");
 }
 
 #[cfg(test)]
